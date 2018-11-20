@@ -13,10 +13,6 @@ module.exports = function (grunt) {
                 //command: 'vendor\\bin\\tester tests -s -p php -c tests\\php.ini'
                 command: 'vendor\\bin\\tester tests -s -p php'
             },
-            installCodeSoft: {
-                command: 'composer create-project nette/coding-standard nette-coding-standard',
-                command: 'composer create-project nette/code-checker nette-code-checker'
-            },
             netteCodeChecker: {
                 command: 'php ..\\..\\nette-code-checker\\src\\code-checker.php -d src --short-arrays --strict-types',
                 //command: 'php ..\..\\nette-code-checker\\src\\code-checker.php -d tests --short-arrays --strict-types'
@@ -37,7 +33,7 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.registerTask('installDependencies', ['shell:init', 'shell:installCodeSoft']);
+    grunt.registerTask('installDependencies', ['shell:init']);
     grunt.registerTask('test', ['shell:test']);
     grunt.registerTask('netteCodeChecker', ['shell:netteCodeChecker']);
     grunt.registerTask('netteCodeCheckerFIX', ['shell:netteCodeCheckerFIX']);
